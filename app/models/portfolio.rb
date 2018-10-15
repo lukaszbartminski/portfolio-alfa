@@ -12,7 +12,7 @@ class Portfolio < ApplicationRecord
 
 	#set_defaults method tells app what defaults values should be; ||= -> this operand works like -> if side.left == nil, side.left == side.right
 	def set_defaults
-		self.main_image ||= "http://placehold.it/600x400"
-		self.thumb_image ||= "http://placehold.it/350x200"
+		self.main_image ||= Placeholder.image_generator(height: '600', width: '400')
+		self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
 	end
 end
