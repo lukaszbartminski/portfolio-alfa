@@ -1,4 +1,7 @@
 class Portfolio < ApplicationRecord
+	#has_many says, Portfolio model may have many technologie, for example Ruby, RoR and HTML
+	has_many :technologies
+
 	validates_presence_of :title, :body, :main_image, :thumb_image
 
 	def self.show_only_angular
