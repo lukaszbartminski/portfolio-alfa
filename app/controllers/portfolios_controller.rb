@@ -3,12 +3,19 @@ class PortfoliosController < ApplicationController
 		@portfolio_items = Portfolio.all
 	end
 
+  def show_ruby
+    @portfolio_items = Portfolio.show_only_ruby
+  end
+
 	def new
 		@portfolio_item = Portfolio.new
+
+    #'build' function simply instantiate nested attribute technologies during 'new' function of portfolio item
+    3.times { @portfolio_item.technologies.build }
 	end
 
 	def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:title]))
 
     respond_to do |format|
       if @portfolio_item.save
