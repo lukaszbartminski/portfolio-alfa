@@ -2,11 +2,6 @@
 
 <%= link_to "Create New Portfolio", new_portfolio_path %>
 
-<% @portfolio_items.each do |portfolio_item_number| %>
-		<p><%= link_to portfolio_item_number.title, portfolio_show_path(portfolio_item_number) %></p>
-		<p><%= portfolio_item_number.subtitle %></p>
-		<p><%= portfolio_item_number.body %></p>
-		<%= image_tag portfolio_item_number.thumb_image if !portfolio_item_number.thumb_image.nil? %>
-		<%= link_to "Edit", edit_portfolio_path(portfolio_item_number.id) %>
-		<%= link_to 'Delete', portfolio_path(portfolio_item_number), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<tbody>
+<%= render partial: 'portfolio_item', collection: @portfolio_items %>
+</tbody>
