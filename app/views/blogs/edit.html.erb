@@ -1,6 +1,7 @@
-<h1>Editing Blog</h1>
-
-<%= render 'form', blog: @blog %>
-
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<div class="col-md-12" style="padding-top: 30px">
+    <div class="card flex-md-row mb-10 shadow-sm">
+      <div class="card-body d-flex flex-column">
+        <%= render 'form', blog: @blog %>
+      </div>
+    </div>
+</div>

@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="text-dark">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="text-dark">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: 'form-control', rows: 10 %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="text-dark" style="padding-top: 10px">
+    <%= form.submit "Submit", class: 'btn btn-primary' %>
+    <%= link_to 'Back', blogs_path, class: 'btn btn-secondary' %>
   </div>
 <% end %>
