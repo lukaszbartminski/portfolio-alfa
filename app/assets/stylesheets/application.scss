@@ -74,8 +74,8 @@ body {
 }
 
 .nav-masthead .active {
-  color: red;
-  border-bottom-color: red;
+  color: white;
+  border-bottom-color: white;
 }
 
 @media (min-width: 48em) {
@@ -124,4 +124,9 @@ body {
     width: 22rem;
     margin: 0 auto;
     float: none;
+ }
+
+ .app-nav span {
+  margin-left: 10px;
+  margin-right: 10px;
  }
