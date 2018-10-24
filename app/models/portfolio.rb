@@ -12,6 +12,10 @@ class Portfolio < ApplicationRecord
 		where(subtitle: 'Angular')
 	end
 
+	def self.by_position
+		order("position ASC")
+	end
+
 	scope :show_only_ruby, -> {where(subtitle: 'Ruby on Rails')}
 
 	#after_initialize tells app to use defaults values of attribute (portfolio, as we are in portfolio model) if none were provided during initilizing process
