@@ -2,10 +2,23 @@ class PortfolioUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+  #include Cloudinary::CarrierWave
+
+  #process :convert => 'png'
+  #process :tags => ['thumb_image', 'main_image']
+
+  #version :standard do
+  #  process :resize_to_fill => [100, 150, :north]
+  #end
+
+  #version :thumbnail do
+  #  resize_to_fit(50,50)
+  #end
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file
   # storage :fog
+  storage :aws
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
