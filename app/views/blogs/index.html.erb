@@ -2,9 +2,10 @@
 
 <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
   <div class="col-md-6 px-0">
-    <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-    <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
-    <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+    <h1 class="display-4 font-italic"><%= Blog.last.title %></h1>
+    <p class="lead my-3"><%= Blog.last.body.truncate_words(20)%></p>
+    <p class="lead mb-0"><%= link_to 'Continue reading...', blog_path(Blog.last.id), class: 'text-white font-weight-bold' %>
+    </p>
   </div>
 </div>
 
@@ -14,11 +15,12 @@
       <div class="card-body d-flex flex-column align-items-start">
         <strong class="d-inline-block mb-2 text-primary">World</strong>
         <h3 class="mb-0">
-          <a class="text-dark" href="#">Featured post</a>
+          <% random_blog = Blog.offset(rand(Blog.count)).first %>
+          <a class="text-dark" href="#"><%= random_blog.title %></a>
         </h3>
-        <div class="mb-1 text-muted">Nov 12</div>
-        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-        <a href="#">Continue reading</a>
+        <div class="mb-1 text-muted">Published <%= distance_of_time_in_words(random_blog.created_at, Time.now) %> ago </div>
+        <p class="card-text mb-auto"><%= random_blog.body.truncate_words(16)%></p>
+        <%= link_to 'Continue reading', blog_path(random_blog.id) %>
       </div>
       <img class="card-img-right flex-auto d-none d-lg-block" img src="https://via.placeholder.com/200x250" alt="Card image cap">
     </div>
@@ -28,11 +30,12 @@
       <div class="card-body d-flex flex-column align-items-start">
         <strong class="d-inline-block mb-2 text-success">Design</strong>
         <h3 class="mb-0">
-          <a class="text-dark" href="#">Post title</a>
+          <% second_random_blog = Blog.offset(rand(Blog.count)).first %>
+          <a class="text-dark" href="#"><%= second_random_blog.title %></a>
         </h3>
-        <div class="mb-1 text-muted">Nov 11</div>
-        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-        <a href="#">Continue reading</a>
+        <div class="mb-1 text-muted">Published <%= distance_of_time_in_words(second_random_blog.created_at, Time.now) %> ago </div>
+        <p class="card-text mb-auto"><%= second_random_blog.body.truncate_words(16)%></p>
+        <%= link_to 'Continue reading', blog_path(second_random_blog.id) %>
       </div>
       <img class="card-img-right flex-auto d-none d-lg-block" img src="https://via.placeholder.com/200x250" alt="Card image cap">
     </div>
@@ -55,8 +58,8 @@
   <!-- Start of sidebar -->
   <aside class="col-md-4 blog-sidebar">
     <div class="p-3 mb-3 bg-light rounded">
-      <h4 class="font-italic">About</h4>
-      <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+      <h4 class="font-italic">What is that for?redirecti</h4>
+      <p class="mb-0">From time to time, I like to write something. Stay tuned!</p>
     </div>
 
     <div class="p-3">
