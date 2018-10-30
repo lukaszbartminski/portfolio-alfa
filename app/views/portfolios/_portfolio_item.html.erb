@@ -9,8 +9,9 @@
     				<div class="d-flex justify-content-between align-items-center">
       					<div class="btn-group">
                   <%= link_to 'Edit (Admin Only)', edit_portfolio_path(portfolio_item.id), class: 'btn btn-sm btn-outline-secondary' if logged_in?(:site_admin) %>
+                  <%= link_to 'Delete (Admin Only)', portfolio_item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-secondary', style: 'margin-left: 5px' %>
       					</div>
-      					<small class="text-muted">9 mins</small>
+      				  <small class="text-muted"></small>
     				</div>
   			</div>
 	</div>

@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="text-dark">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+    <%= form.text_field :title, class: 'form-control', placeholder: 'Title' %>
   </div>
 
   <div class="text-dark">
-    <%= form.label :body %>
-    <%= form.text_area :body, class: 'form-control', rows: 10 %>
+    <%= form.text_area :body, class: 'form-control', rows: 10, placeholder: 'Blog content!' %>
   </div>
 
   <div class="text-dark" style="padding-top: 10px">

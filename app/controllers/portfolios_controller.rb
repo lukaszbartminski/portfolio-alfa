@@ -21,9 +21,6 @@ class PortfoliosController < ApplicationController
 
 	def new
 		@portfolio_item = Portfolio.new
-
-    #'build' function simply instantiate nested attribute technologies during 'new' function of portfolio item
-    3.times { @portfolio_item.technologies.build }
 	end
 
 	def create
@@ -74,7 +71,7 @@ class PortfoliosController < ApplicationController
                                       :body,
                                       :main_image,
                                       :thumb_image,
-                                      technologies_attributes: [:title]
+                                      technologies_attributes: [:id, :title, :_destroy]
                                       )
   end
 
